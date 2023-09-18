@@ -22,12 +22,12 @@ public class TreeNode {
     }
 
     public TreeNode addLeft(int val) {
-        this.left = new TreeNode(val);
-        return this;
+        this.left = new TreeNode(val, null, null, this);
+        return this.left;
     }
     
     public TreeNode addRight(int val) {
-        this.right = new TreeNode(val);
-        return this;
+        this.right = new TreeNode(val, null, null, this);
+        return this.right;
     }
 }

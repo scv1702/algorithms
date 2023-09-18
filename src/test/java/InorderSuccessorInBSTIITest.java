@@ -1,53 +1,45 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 import scv1702.data.TreeNode;
 import scv1702.medium.InorderSuccessorInBSTII;
+import org.junit.jupiter.api.Test;
 
 public class InorderSuccessorInBSTIITest {
-
     private InorderSuccessorInBSTII solution = new InorderSuccessorInBSTII();
 
     @Test
-    public void withOneNode() {
-        assertNull(solution.findInorderSuccessor(new TreeNode(1)));
-    }
-
-    @Test
-    public void withTwoNodes() {
+    public void exampleOne() {
         TreeNode root = new TreeNode(2);
-        root.addLeft(1);
-        assertEquals(2, solution.findInorderSuccessor(root.left).val);
+        root.addLeft(1); root.addRight(3);
+        assertThat(solution.findInorderSuccessor(root.left).val).isEqualTo(2);
     }
 
     @Test
-    public void withFourNodes() {
-        TreeNode root = new TreeNode(2);
-        root.addLeft(1);
-        root.addRight(4).addRight(6).addLeft(5);
-        assertEquals(4, solution.findInorderSuccessor(root).val);
+    public void exampleTwo() {
+        TreeNode root = new TreeNode(5);
+        root.addLeft(3).addLeft(2).addLeft(1);
+        root.addRight(6);
+        root.left.addRight(4);
+        assertThat(solution.findInorderSuccessor(root.right)).isEqualTo(null);
     }
 
     @Test
-    public void withTargetNodeARightNode() {
-        TreeNode root = new TreeNode(6);
-        root.addLeft(4).addRight(5);
-        assertEquals(6, solution.findInorderSuccessor(root.left.right).val);
+    public void exampleThree() {
+        TreeNode root = new TreeNode(15);
+        root.addLeft(6).addLeft(3).addLeft(2);
+        root.addRight(18).addRight(20);
+        root.left.addRight(7).addRight(13).addLeft(9);
+        root.right.addLeft(17);
+        assertThat(solution.findInorderSuccessor(root).val).isEqualTo(17);
     }
 
     @Test
-    public void withTargetNodeARightNode_AndWithChild() {
-        TreeNode root = new TreeNode(8);
-        root.addLeft(4).addRight(6).addRight(7);
-        assertEquals(7, solution.findInorderSuccessor(root.left.right).val);
-    }
-
-    @Test
-    public void withTargetNodeADeepRightNode() {
-        TreeNode root = new TreeNode(8);
-        root.addLeft(1).addRight(2).addRight(3).addRight(4);
-        assertEquals(8, solution.findInorderSuccessor(root.left.right.right.right).val);
+    public void exampleFour() {
+        TreeNode root = new TreeNode(15);
+        root.addLeft(6).addLeft(3).addLeft(2);
+        root.addRight(18).addRight(20);
+        root.left.addRight(7).addRight(13).addLeft(9);
+        root.right.addLeft(17);
+        assertThat(solution.findInorderSuccessor(root.left.right.right).val).isEqualTo(15);
     }
 }

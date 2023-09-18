@@ -10,7 +10,7 @@ public class InorderSuccessorInBSTII {
 
     TreeNode up(TreeNode node) {
         TreeNode parent = node.parent;
-        if (parent == null) return node;
+        if (parent == null) return null;
         if (parent.right != node) return parent;
         return up(parent);
     }
