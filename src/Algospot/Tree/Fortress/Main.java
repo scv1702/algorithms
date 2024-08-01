@@ -1,4 +1,4 @@
-package Tree.Fortress;
+package Algospot.Tree.Fortress;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package Tree.Traversal;
+package Algospot.Tree.Traversal;
 
 import java.io.BufferedReader;
 import java.io.IOException;
