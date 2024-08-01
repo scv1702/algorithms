@@ -1,4 +1,4 @@
-package Algospot.Tree.Traversal;
+package AcmicpcNet.Gold.N2263;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main2 {
+public class Main {
 
     static class Node {
         String num;
