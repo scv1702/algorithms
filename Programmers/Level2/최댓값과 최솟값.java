@@ -13,4 +13,12 @@ class Solution {
         String answer = String.format("%d %d", min, max);
         return answer;
     }
+
+    public String solutionUsingStream(String s) {
+        int[] nums = Arrays.stream(s.split(" "))
+                .mapToInt(Integer::parseInt)
+                .sorted()
+                .toArray();
+        return String.format("%d %d", nums[0], nums[nums.length - 1]);
+    }
 }
