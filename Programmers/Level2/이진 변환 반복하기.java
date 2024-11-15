@@ -20,4 +20,24 @@ class Solution {
         int[] answer = {i, j};
         return answer;
     }
+
+    public int[] solutionV2(String s) {
+        int b = 0;
+        int z = 0;
+
+        while (!s.equals("1")) {
+            int size = 0;
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) == '1') {
+                    size += 1;
+                } else {
+                    z += 1;
+                }
+            }
+            s = Integer.toString(size, 2);
+            b += 1;
+        }
+
+        return new int[] { b, z };
+    }
 }
