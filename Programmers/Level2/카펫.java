@@ -19,4 +19,22 @@ class Solution {
         answer[1] = y;
         return answer;
     }
+
+    public int[] solutionV2(int brown, int yellow) {
+        int w = 3; // 최소 3, 최대 2,000,002
+        int h = 3; // 최소 3
+
+        for (; w <= 2_000_002; w++) {
+            h = ((brown - 2 * w) / 2) + 2;
+            if (w < h) continue;
+            int yw = w - 2;
+            if (yellow % yw != 0) continue;
+            int yh = yellow / yw;
+            if (yw + 2 == w && yh + 2 == h) {
+                break;
+            }
+        }
+
+        return new int[] { w, h };
+    }
 }
